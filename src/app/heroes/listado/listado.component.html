@@ -1,0 +1,24 @@
+<p>Listado de Héroes</p>
+
+<!--Si heroeBorrado tiene algun dato que muestre el div, si no que muestre la referencia local noBorrado -->
+<div *ngIf="heroeBorrado.length !== 0; else noBorrado">
+    <h3>Héroe borrado <small> {{ heroeBorrado }}</small> </h3>
+</div>
+
+<!--Template de angular con la referencia noBorrado-->
+<ng-template #noBorrado>
+    <h3>No ha borrado nada</h3>
+</ng-template>
+
+
+<button (click)="borrarHeroe()">
+    Borrar
+</button>
+
+<ul>
+    <!--heroe es la referencia de cada uno de los item del array heroes-->
+    <li *ngFor="let heroe of heroes; let i = index">
+        {{ i+1 }} - {{heroe}}
+    </li>
+</ul>
+
